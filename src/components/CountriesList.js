@@ -15,7 +15,7 @@ function CountriesList() {
       <div className="container">
         <div className="row">
           <div
-            className="col-5"
+            className="col-12"
             style={{ maxHeight: '90vh', overflow: 'scroll' }}
           >
             <div className="list-group">
@@ -26,7 +26,7 @@ function CountriesList() {
                     className="list-group-item list-group-item-action"
                     to={`/${country.cca3}`} //string litéral
                   >
-                    {country.flag} {country.name.common}
+                    <img src={`https://www.countryflags.io/${country.cca2}/flat/64.png`} alt="flag"/> {country.name.common}
                   </Link>
                 );
               })}
