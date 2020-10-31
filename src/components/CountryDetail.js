@@ -1,36 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import countries from '../countries.json';
-import CountriesList from './CountriesList';
+import { Link } from 'react-router-dom';
 
 
 const CountryDetail = (props) => {
-    
+  
+const foundedCountry = countries.find((country) => country.cca2 === props.match.params.cca2);
 
-
-const searchCountry = (code) => {
-const theCountry = oneProject => {
-    return oneProject.cca2 === code;
-    }
-    return countries.find(theCountry)
-    };
-          
-const { params } = props.match;
-const foundCountry = searchCountry(params.cca2, 10);
 
   return (
 
-
-
-
     <div className="col-7">
-        <h1>{foundCountry.name.common}</h1>
+        <h1>{foundedCountry.name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td style={{width: '30%'}}>Capital</td>
-                  <td>{foundCountry.capital}</td>
+                  <td>{foundedCountry.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
@@ -39,11 +26,16 @@ const foundCountry = searchCountry(params.cca2, 10);
                   </td>
                 </tr>
                 <tr>
-                  <td>Borders</td>
-                  <td>
-                    <ul>
-                      <li>{foundCountry.borders.map((el) => <li>{el}</li>)}</li>
-                    </ul>
+                    <td>Borders</td>
+                      <td>
+                      <ul>
+                    {
+                      foundedCountry.borders.map((borderCountry) => {
+                      return <li><Link to={`/${borderCountry.cca2}`}>{borderCountry}</Link></li>
+                      }
+                    )
+                    }
+                </ul>
                   </td>
                 </tr>
               </tbody>

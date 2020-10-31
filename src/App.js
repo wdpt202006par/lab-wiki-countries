@@ -4,6 +4,10 @@ import './App.css';
 import CountriesList from '../src/components/CountriesList'
 import CountryDetail from '../src/components/CountryDetail'
 import countries from './countries.json'
+import {Route, Switch} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 
 
 
@@ -11,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <CountriesList countries={countries} />
-      <CountryDetail countries={countries}/>
+      <Route path="/:cca2" component={CountryDetail} />
     </div>
   );
 }
