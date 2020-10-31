@@ -8,7 +8,7 @@ const countries = [...json] // ['Aruba','Congo', ...]
 function CountriesList() {
     return(
         <div>
-            <div className='col-5' style={{maxHeight: "90vh", overflow: "scroll"}}>
+            <div className='col-7' style={{maxHeight: "90vh", overflow: "scroll"}}>
                 <div className='list-group'>
                 
                     {countries.map(uneVille => { 

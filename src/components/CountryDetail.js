@@ -1,7 +1,7 @@
 import React from 'react';
 
 import json from '../countries.json';
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const CountryDetail = (props) => {
 console.log('props=', props)
@@ -13,17 +13,12 @@ console.log('props=', props)
     return el.cca3 === countryCca3
   });
 
-  // const bordersCca3 = theCountry.borders.find(el => {
-  //   return el.borders === theCountry.name.common
-  // })
-  // // console.log(theCountry.name.common)
-
   return (
-    <div className ="col-7" >
+    <div className ="col-5">
     
     <h1 > {theCountry.name.common}</h1>
 
-    <table>
+    <table className="table">
       <tbody>
         <tr>
           <td style= {{width : "30%"}}>
@@ -43,17 +38,23 @@ console.log('props=', props)
           </td>
           <td>
             <ul>
-              <li>{theCountry.borders} </li>
+              {theCountry.borders.map( cca3 => {
+                const theBorderCountry = [...json].find(theCountry => theCountry.cca3 === cca3);
+                return (
+                  <li>
+                  <Link to = {`${theBorderCountry.cca3}`}>
+                  {theBorderCountry.name.common}
+                  </Link>
+                  </li>
+                )
+              }  
+              )
+              } 
             </ul>
           </td>
         </tr>
-
       </tbody>
     </table>
-
-   
-
-    {/* <p>Borders {theCountry.borders} </p> */}
     </div>
 
   )
