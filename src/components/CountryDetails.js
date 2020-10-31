@@ -14,20 +14,23 @@ class CountryDetails extends Component  {
       return country.name.common;
     }
 
+    const cca3 = this.props.match.params.cca3;
+    const country = countriesjson.find(c => c.cca3 === cca3);
+
     return (
       <div className="CountryDetails">
-        <h1>{this.props.name.common}</h1>
+        <h1>{country.name.common}</h1>
         
         <table className="table">
           <thead></thead>
           <tbody>
             <tr>
               <td style={{width: "30%"}}>Capital</td>
-              <td>{this.props.capital[0]}</td>
+              <td>{country.capital[0]}</td>
             </tr>
             <tr>
               <td>Area</td>
-              <td>{this.props.area} km
+              <td>{country.area} km
                 <sup>2</sup>
               </td>
             </tr>
@@ -35,7 +38,7 @@ class CountryDetails extends Component  {
               <td>Borders</td>
               <td>
                 <ul>
-                  {this.props.borders.map(bordercountrycca3 => {
+                  {country.borders.map(bordercountrycca3 => {
                     return (
                       <li key={bordercountrycca3}>
                         <Link to={`/${bordercountrycca3}`}>

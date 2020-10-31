@@ -21,16 +21,12 @@ function App() {
         <div className="container">
           <div className="row">
 
-            {/*
-              Colone Gauche
-              */}
+            {/* Colone Gauche */}
             <div className="col-5" style={{maxHeight: "90vh", overflow: "scroll"}}>
               <CountryList />
             </div>
 
-            {/*
-              Colone Droite
-              */}
+            {/* Colone Droite */}
             <div className="col-7">
               <Switch>
                 <Route exact path='/' render={() => {
@@ -38,15 +34,7 @@ function App() {
                     <p>👈 Choose a country from the list.</p>
                   );
                 }}/>
-                <Route path='/:cca3' render={(props) => {
-                  const cca3 = props.match.params.cca3;
-                  const country = countriesjson.find(c => c.cca3 === cca3);
-
-                  return (
-                    // <CountryDetails {...country} scrollToActive={this.scrollToActive} />
-                    <CountryDetails {...country} />
-                  );
-                }} />
+                <Route path='/:cca3' component={CountryDetails} />
               </Switch>
             </div>
 
