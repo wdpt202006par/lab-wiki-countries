@@ -29,11 +29,7 @@ function App() {
             {/* Colone Droite */}
             <div className="col-7">
               <Switch>
-                <Route exact path='/' render={() => {
-                  return (
-                    <p>👈 Choose a country from the list.</p>
-                  );
-                }}/>
+                <Route exact path='/' render={() => <p>👈 Choose a country from the list.</p>}/>
                 <Route path='/:cca3' component={CountryDetails} />
               </Switch>
             </div>
