@@ -2,7 +2,7 @@ import React from 'react';
 import json from '../countries.json';
 import { Link } from 'react-router-dom';
 
-const countries = [... json] // ['Aruba','Congo', ...]
+const countries = [...json] // ['Aruba','Congo', ...]
 
 
 function CountriesList() {
@@ -13,11 +13,13 @@ function CountriesList() {
                 
                     {countries.map(uneVille => { 
                         return(
+                            <div key = {uneVille.cca3}>
                             <Link 
-                            to={`${uneVille.cca3}`}
+                            to={`/${uneVille.cca3}`}
                             className= 'list-group-item list-group-item-action'>
                                 <div>{uneVille.flag} {uneVille.name.common}</div>
                             </Link>
+                            </div>
                         )}
                     )}
                 

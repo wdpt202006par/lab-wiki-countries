@@ -1,13 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, Switch} from 'react-router-dom';
+
 import CountriesList from './components/CountriesList';
+import CountryDetail from './components/CountryDetail';
+
+
 
 function App() {
   return (
     <div className="App">
-      <CountriesList />
 
+    <CountriesList/>
+    
+    <Switch>
+      <Route exact path="/:cca3" component ={CountryDetail} />
+    </Switch>
       
     </div>
     
