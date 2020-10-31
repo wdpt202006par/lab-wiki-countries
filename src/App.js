@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <CountriesList countries={countries} />
-      <Route path="/:cca2" component={CountryDetail} />
+      <Route path="/:cca3" component={CountryDetail} />
     </div>
   );
 }

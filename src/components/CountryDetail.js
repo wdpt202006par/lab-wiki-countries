@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CountryDetail = (props) => {
   
-const foundedCountry = countries.find((country) => country.cca2 === props.match.params.cca2);
+const foundedCountry = countries.find((country) => country.cca3 === props.match.params.cca3);
 
 
   return (
@@ -31,11 +31,11 @@ const foundedCountry = countries.find((country) => country.cca2 === props.match.
                       <ul>
                     {
                       foundedCountry.borders.map((borderCountry) => {
-                      return <li><Link to={`/${borderCountry.cca2}`}>{borderCountry}</Link></li>
+                      return <li><Link to={`/${borderCountry}`}>{borderCountry}</Link></li>
                       }
                     )
                     }
-                </ul>
+                    </ul>
                   </td>
                 </tr>
               </tbody>

@@ -15,7 +15,7 @@ render() {
             <div className="list-group">
                 {countries.map((country)=> {
                 return (
-                    <Link to = {`/${country.cca2}`} >
+                    <Link to = {`/${country.cca3}`} >
                     <img src={`https://www.countryflags.io/${country.cca2}/flat/64.png`}/>
                     <p>{country.name.common}</p>
                     </Link>
