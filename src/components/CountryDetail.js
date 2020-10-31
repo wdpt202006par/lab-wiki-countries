@@ -1,22 +1,29 @@
 // Receive country code from URL
 
 import React from 'react';
+import countries from '../countries.json';
 
-class CountryDetail extends React.Component {
-    render() {
+const CountryDetail = (props) => {
+
+console.log(props);
+const countryId = props.match.params.id; // "ALA"
+const theCountry = countries.find(el => {
+    return el.cca3 === countryId
+  });
+
         return (
             <div className="col-7">
-            <h1>France</h1>
+            <h1>{theCountry.name.common}</h1>
             <table className="table">
                 <thead></thead>
                 <tbody>
                 <tr>
                     <td style={{width: "30%"}}>Capital</td>
-                    <td>Paris</td>
+                    <td>{theCountry.capital}</td>
                 </tr>
                 <tr>
                     <td>Area</td>
-                    <td>551695 km
+                    <td>{theCountry.area}km
                     <sup>2</sup>
                     </td>
                 </tr>
@@ -24,14 +31,17 @@ class CountryDetail extends React.Component {
                     <td>Borders</td>
                     <td>
                     <ul>
-                        <li><a href="/AND">Andorra</a></li>
-                        <li><a href="/BEL">Belgium</a></li>
-                        <li><a href="/DEU">Germany</a></li>
-                        <li><a href="/ITA">Italy</a></li>
-                        <li><a href="/LUX">Luxembourg</a></li>
-                        <li><a href="/MCO">Monaco</a></li>
-                        <li><a href="/ESP">Spain</a></li>
-                        <li><a href="/CHE">Switzerland</a></li>
+                    {theCountry.borders.map(item=> {
+                        const theBorder = countries.find(el => {
+                            return el.cca3 === item
+                        });
+                        return (
+                           <li key={item.id}><a href={item}>{theBorder.name.common}</a></li> 
+                        )
+                    }
+                        
+                    )}
+            
                     </ul>
                     </td>
                 </tr>
@@ -39,7 +49,7 @@ class CountryDetail extends React.Component {
             </table>
             </div>
         )
-    }
+    
 }
 
 export default CountryDetail;
