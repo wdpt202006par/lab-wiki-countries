@@ -16,8 +16,10 @@ render() {
                 {countries.map((country)=> {
                 return (
                     <Link to = {`/${country.cca3}`} >
-                    <img src={`https://www.countryflags.io/${country.cca2}/flat/64.png`}/>
-                    <p>{country.name.common}</p>
+                      <div className="list-cadre">
+                         <img className="list-img" src={`https://www.countryflags.io/${country.cca2}/flat/64.png`}/>
+                         <p className="list-name">{country.name.common}</p>
+                      </div>
                     </Link>
                 )
                 })}
