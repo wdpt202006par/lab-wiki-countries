@@ -21,7 +21,7 @@ const foundedCountry = countries.find((country) => country.cca3 === props.match.
                 </tr>
                 <tr>
                   <td>Area</td>
-                  <td>{countries.area} km
+                  <td>{foundedCountry.area} km
                     <sup>2</sup>
                   </td>
                 </tr>
